@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\Dashboard\HomeController;
 |
 */
 // Redirect
+Route::get('/', function(){ return redirect()->route('dashboard.home'); });
 Route::get('/home', function(){ return redirect()->route('dashboard.home'); });
 
 // Auth
