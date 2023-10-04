@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\Category\CategoryController;
+use App\Http\Controllers\Api\Traning\LearningPathController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth Routes
-include('auth.php');
+
+Route::apiResource('/category',CategoryController::class);
+Route::apiResource('/learning-path',LearningPathController::class);
+
+// include('auth.php');
