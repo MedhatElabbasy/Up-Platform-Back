@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\LearningPathCourse;
 use Illuminate\Database\Seeder;
 
 class LearningPathCourseSeeder extends Seeder
@@ -12,6 +12,13 @@ class LearningPathCourseSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        LearningPathCourse::create([
+            'course_id' => 1,
+            'learning_path_id' => 1,
+        ]);
+        LearningPathCourse::create([
+            'course_id' => 2,
+            'learning_path_id' => 2,
+        ]);
     }
 }
