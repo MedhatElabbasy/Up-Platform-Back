@@ -26,7 +26,11 @@ trait ResponseHandler
      */
     public function error($code, $message)
     {
-        abort($code, $message);
+        if (request()->wantsJson()){
+            abort($code, $message);
+        }else{
+            redirect()->back()->withErrors(['failed' => $message]);
+        }
     }
 
     /**

@@ -14,17 +14,24 @@ class LoginService extends Service
         private AuthRepository $authRepository,
     ) {}
 
-    public function login($email, $password)
+    public function login($email, $password, null|array $roles=null, $api=true)
     {
         if (!Auth::attempt(['email'=>$email, 'password'=>$password]))
             return $this->error(404, "البريد الإلكتروني او كلمة السر غير صحيحة");
 
         $user = request()->user();
 
-        return [
-            "token"  => $user->createToken('auth_token')->plainTextToken,
-            "user"   => new UserResource($user)
-        ];
+        if(is_array($roles) && !$user->hasRole($roles))
+            return $this->error(404, "ليس لديك الصلاحية للدخول");
+
+        if($api){
+            return [
+                "token"  => $user->createToken('auth_token')->plainTextToken,
+                "user"   => new UserResource($user)
+            ];
+        }
+            
+        return $user;
     }
 
     public function loginWithProvider($provider, $access_token)
@@ -55,5 +62,7 @@ class LoginService extends Service
     public function logout()
     {
         auth()->user()->tokens()->delete();
+
+        auth()->logout();
     }
 }
