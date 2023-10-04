@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // Auth Routes
 
-Route::apiResource('/category',CategoryController::class);
-Route::apiResource('/learning-path',LearningPathController::class);
+// Route::apiResource('/category',CategoryController::class);
+// Route::apiResource('/learning-path',LearningPathController::class);
 
-// include('auth.php');
+include('auth.php');
