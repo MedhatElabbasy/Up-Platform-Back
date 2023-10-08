@@ -3,7 +3,7 @@ id="default-drawer"
 data-align="start">
 <div class="mdk-drawer__content">
    <div class="sidebar sidebar-light sidebar-left sidebar-p-t" data-perfect-scrollbar>
-    
+
         @foreach ([
             'لوحة التحكم' => [
                 ['icon'=>'home', 'link'=>'dashboard', 'url'=>route('dashboard.home'), 'text'=>'الرئيسية'],
@@ -12,7 +12,7 @@ data-align="start">
             'قسم التدريب' => [
                 ['icon'=>'school', 'link'=>'/', 'url'=>route('dashboard.courses.index'), 'text'=>'مكتبة المهارات'],
                 ['icon'=>'videocam', 'link'=>'/', 'url'=>'#', 'text'=>'دورات أون لاين'],
-                ['icon'=>'video_library', 'link'=>'/', 'url'=>'#', 'text'=>'مسارات تدريبية'],
+                ['icon'=>'video_library', 'link'=>'/', 'url'=>route('dashboard.learning-path.index'), 'text'=>'مسارات تدريبية'],
             ],
         ] as $key => $sidebar)
        <div class="sidebar-heading">{{ $key }}</div>
