@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'super_admin@example.com',
             'email_verified_at' => now(),
+            'phone' => '99999999999',
             'password' => 'password'
         ]);
 

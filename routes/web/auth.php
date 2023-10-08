@@ -28,6 +28,6 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
     });
     
     Route::middleware('auth')->group(function () { // Auth
-        Route::get('/logout', [LoginController::class, 'logout']);
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     });
 });

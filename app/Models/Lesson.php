@@ -10,9 +10,10 @@ class Lesson extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'description','content','type','section_id'];
+
     #### Relation ###
     public function section()
     {
-        return $this->belongsTo(Section::class, 'section_id');
+        return $this->belongsTo(Section::class);
     }
 }
