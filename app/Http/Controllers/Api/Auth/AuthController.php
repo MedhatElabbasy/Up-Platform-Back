@@ -105,7 +105,7 @@ class AuthController extends Controller
 
     public function forgotPassword(ForgotPasswordRequest $request)
     {
-        $this->resetPasswordService->forgot();
+        $this->resetPasswordService->forgot($request->email);
 
         return $this->success([
             'message' => "تم ارسال رمز اعادة تعيين كلمة السر"

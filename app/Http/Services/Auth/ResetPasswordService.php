@@ -13,18 +13,18 @@ class ResetPasswordService extends Service
         private AuthRepository $authRepository
     ) {}
 
-    public function forgot()
+    public function forgot($email)
     {
-        if ($this->authRepository->emailExists(request()->email)) {
+        if ($this->authRepository->emailExists($email)) {
             $verificationCode = rand(1000, 9999);
 
             $this->authRepository->passwordResetVerification(
-                request()->email,
+                $email,
                 $verificationCode
             );
 
             try {
-                Mail::to(request()->email)->send(new ResetPasswordMail($verificationCode));
+                Mail::to($email)->send(new ResetPasswordMail($verificationCode));
             } catch (\Exception $e) {
                 dd($e->getMessage());
                 return $this->error(400, "عذرا حاول في وقت لاحق!");

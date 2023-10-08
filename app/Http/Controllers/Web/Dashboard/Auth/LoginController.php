@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Dashboard\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Auth\LoginService;
-use App\Http\Requests\Web\Dashboard\LoginRequest;
+use App\Http\Requests\Web\Dashboard\Auth\LoginRequest;
 
 class LoginController extends Controller
 {

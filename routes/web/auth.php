@@ -24,7 +24,7 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::resource('/login', LoginController::class)->only(['index', 'store']);
 
         // Forgot password
-        Route::resource('/forgot-password', ForgotPasswordController::class)->only(['index', 'store', 'update']);
+        Route::resource('/forgot-password', ForgotPasswordController::class)->only(['index', 'store', 'update', 'show']);
     });
     
     Route::middleware('auth')->group(function () { // Auth

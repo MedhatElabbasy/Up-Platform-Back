@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Web\Dashboard;
+namespace App\Http\Requests\Web\Dashboard\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class ForgotPasswordRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,8 +14,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required|min:6'
+            'email' => 'required|string|email|max:255',
         ];
     }
 }
