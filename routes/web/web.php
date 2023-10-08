@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Dashboard\HomeController;
+use App\Http\Controllers\Web\Dashboard\CategoryController;
+use App\Http\Controllers\Web\Dashboard\CourseController;
+use App\Http\Controllers\Web\Dashboard\SectionController;
+use App\Http\Controllers\Web\Dashboard\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +28,16 @@ include('auth.php');
 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'role:Super Admin|Admin|Employee'])->group(function () {
     // Home
     Route::get('/', [HomeController::class,'index'])->name('home');
+    
+    // Categories
+    Route::resource('/categories', CategoryController::class);
+
+    // Courses
+    Route::resource('/courses', CourseController::class);
+
+    // Courses sections
+    Route::resource('/courses/{course}/sections', SectionController::class);
+
+    // Sections lessons
+    Route::resource('/sections/{section}/lessons', LessonController::class);
 });
