@@ -29,29 +29,29 @@
             @csrf
             @method("PUT")
 
-            <div class="row">
-                <div class="form-group col-lg-6">
-                    <label for="">الدورة</label>
-                    <div><span class="badge badge-info">{{ $section->course->name }}</span></div>
+            <div class="container card p-4">
+            <div class="row align-items-center justify-content-center">
+                <div class="form-group">
+                    <div><span class="badge badge-info">{{ ' الدورة: ' . $section->course->name }}</span></div>
                 </div>
-                <div class="form-group col-lg-6">
-                    <label for="">القسم</label>
-                    <div><span class="badge badge-danger">{{ $section->name }}</span></div>
+                <div class="form-group">
+                    <div><span class="badge badge-danger">{{ ' القسم: ' . $section->name }}</span></div>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group d-flex align-items-center justify-content-center">
                 <video
                 id="my-video"
                 class="video-js vjs-big-play-centered vjs-theme-sea"
                 controls
                 preload="auto"
-                fluid="true"
+                width="500"
                 poster=""
                 data-setup='{}'
                 >
                 <source src="{{ url('app/videos/'.$lesson->content) }}" type="application/x-mpegURL">
                 </video>
+            </div>
             </div>
 
             <div class="form-group">

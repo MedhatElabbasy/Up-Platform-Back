@@ -61,6 +61,7 @@ class AuthController extends Controller
         $data = $this->loginService->loginWithProvider(
             $request->provider,
             $request->access_token,
+            $request->jwt_token,
         );
         
         return $this->success([

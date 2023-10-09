@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\Auth;
 
+use Firebase\JWT\JWT;
 use App\Http\Services\Service;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
@@ -34,13 +35,21 @@ class LoginService extends Service
         return $user;
     }
 
-    public function loginWithProvider($provider, $access_token)
+    public function loginWithProvider($provider, $access_token=null, $jwt_token=null)
     {
         try {
-            $providerUser = Socialite::driver($provider)->userFromToken($access_token);
-            $email = $providerUser->getEmail();
-            $name = $providerUser->getName();
-    
+            if(!empty($access_token)){
+                $providerUser = Socialite::driver($provider)->userFromToken($access_token);
+
+                $email = $providerUser->getEmail();
+                $name = $providerUser->getName();
+            }else{
+                $providerUser = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $jwt_token)[1]))));
+          
+                $email = $providerUser->email;
+                $name = $providerUser->namecompose;
+            }
+
             $user = $this->authRepository->getUserWithEmail($email);
             if(!$user){
                 $user = $this->authRepository->createUser([
@@ -51,7 +60,6 @@ class LoginService extends Service
         } catch (\Throwable $th) {
             return $this->error(404, "رمز الوصول غير صحيح");
         }
-
 
         return  [
             'token' => $user->createToken('auth_token_socialite')->plainTextToken,

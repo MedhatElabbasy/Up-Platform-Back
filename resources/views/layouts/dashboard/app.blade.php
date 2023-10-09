@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="layout-default">
+<body class="layout-mini">
 
     <div class="preloader"></div>
 

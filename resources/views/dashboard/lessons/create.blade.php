@@ -27,6 +27,8 @@
 
         <form enctype="multipart/form-data" method="POST" action="{{route('dashboard.lessons.store', $section->id)}}">
             @csrf
+            <input type="hidden" hidden value="{{$type}}">
+            
             <div class="row">
                 <div class="form-group col-lg-6">
                     <label for="">الدورة</label>
@@ -45,10 +47,11 @@
                 <label for="">الوصف</label>
                 <textarea name="description" class="form-control" rows="5" placeholder="ادخل الوصف" required></textarea>
             </div>
-            <div class="form-group">
-                <label class="form-label">الفيديو</label>
-                <input class="form-control" name="file" type="file" accept="video/*">
-            </div>
+
+                <div class="form-group">
+                    <label class="form-label">الفيديو</label>
+                    <input class="form-control" name="file" type="file" accept="video/*">
+                </div>
 
             <button type="submit" class="btn btn-primary">اضافة</button>
         </form>

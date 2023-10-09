@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\Auth;
+namespace App\Http\Requests\Web\Dashboard\Profile;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginWithProviderRequest extends FormRequest
+class EditProfileRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,10 +14,9 @@ class LoginWithProviderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'provider' => 'required', 'string', 'in:google',
-            'access_token' => 'sometimes', 'string',
-            'jwt_token' => 'sometimes', 'string',
+            'name' => 'required|string|min:2',
+            'old_password' => 'sometimes|min:6',
+            'new_password' => 'required_with:old_password|min:6|confirmed',
         ];
     }
 }
-

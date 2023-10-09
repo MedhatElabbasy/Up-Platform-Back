@@ -3,20 +3,21 @@ class="mdk-header js-mdk-header m-0"
 data-fixed>
 <div class="mdk-header__content">
 
-   <div class="navbar navbar-expand-sm navbar-main navbar-dark bg-dark  pr-0"
+   <div class="navbar navbar-expand-sm navbar-main navbar-light bg-light  pr-0"
         id="navbar"
         data-primary>
        <div class="container-fluid p-0">
 
            <!-- Navbar toggler -->
-           <button class="navbar-toggler navbar-toggler-right d-block d-lg-none"
+
+           <button class="navbar-toggler navbar-toggler-custom navbar-toggler-right d-block"
                    type="button"
                    data-toggle="sidebar">
-               <span class="navbar-toggler-icon"></span>
+               <span class="material-icons">apps</span>
            </button>
 
            <!-- Navbar Brand -->
-           <a href="index.html"
+           <a href="{{route('dashboard.home')}}"
               class="navbar-brand ">
               <img class="navbar-brand-icon"
               src="{{url('dashboard-assets')}}/images/logo.png"
@@ -26,16 +27,7 @@ data-fixed>
             <span>Up-Platform</span>
            </a>
 
-           <!--
-           <form class="search-form d-none d-sm-flex flex"
-                 action="index.html">
-               <button class="btn"
-                       type="submit"><i class="material-icons">h</i></button>
-               <input type="text"
-                      class="form-control"
-                      placeholder="Search">
-           </form>
-            -->
+           @include('layouts.dashboard.navbar')
 
            <!--
            <ul class="nav navbar-nav ml-auto d-none d-md-flex">
@@ -199,35 +191,35 @@ data-fixed>
             -->
 
            <ul class="nav navbar-nav d-none d-sm-flex border-left navbar-height align-items-center">
-               <li class="nav-item dropdown">
-                   <a href="#account_menu"
-                      class="nav-link dropdown-toggle"
-                      data-toggle="dropdown"
-                      data-caret="false">
-                       <span class="mr-1 d-flex-inline">
-                           <span class="text-light">{{ auth()->user()->name }}</span>
-                       </span>
-                       <img src="{{url('dashboard-assets')}}/images/avatar/user.png"
-                            class="rounded-circle"
-                            width="32"
-                            alt="Frontted">
-                   </a>
-                   <div id="account_menu"
-                        class="dropdown-menu dropdown-menu-right">
-                       <div class="dropdown-item-text dropdown-item-text--lh">
-                           <div><strong>{{ auth()->user()->name }}</strong></div>
-                       </div>
-                       <div class="dropdown-divider"></div>
-                       <a class="dropdown-item active"
-                          href="index.html"><i class="material-icons">dvr</i> لوحة التحكم</a>
-                       <a class="dropdown-item"
-                          href="profile.html"><i class="material-icons">account_circle</i> حسابك</a>
-                       <div class="dropdown-divider"></div>
-                       <a class="dropdown-item"
-                          href="{{ route('dashboard.logout') }}"><i class="material-icons">exit_to_app</i> تسجيل الخروج</a>
-                   </div>
-               </li>
-           </ul>
+            <li class="nav-item dropdown">
+                <a href="#account_menu"
+                   class="nav-link dropdown-toggle"
+                   data-toggle="dropdown"
+                   data-caret="false">
+                   <img src="{{url('dashboard-assets')}}/images/avatar/user.png"
+                   class="rounded-circle"
+                   width="32"
+                   alt="{{ auth()->user()->name }}">
+                    <span class="mr-1 d-flex-inline">
+                        <span class="text-light">{{ auth()->user()->name }}</span>
+                    </span>
+                </a>
+                <div id="account_menu"
+                     class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-item-text dropdown-item-text--lh">
+                        <div><strong>{{ auth()->user()->name }}</strong></div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active"
+                       href="{{route('dashboard.home')}}"><i class="material-icons">dvr</i> لوحة التحكم</a>
+                    <a class="dropdown-item"
+                       href="{{route('dashboard.profile.index')}}"><i class="material-icons">account_circle</i> حسابك</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item"
+                       href="{{ route('dashboard.logout') }}"><i class="material-icons">exit_to_app</i> تسجيل الخروج</a>
+                </div>
+            </li>
+        </ul>
 
        </div>
    </div>

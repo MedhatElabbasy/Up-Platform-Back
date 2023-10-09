@@ -6,6 +6,7 @@ use App\Http\Controllers\Web\Dashboard\CategoryController;
 use App\Http\Controllers\Web\Dashboard\CourseController;
 use App\Http\Controllers\Web\Dashboard\SectionController;
 use App\Http\Controllers\Web\Dashboard\LessonController;
+use App\Http\Controllers\Web\Dashboard\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ include('auth.php');
 
 // Dashboard
 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'role:Super Admin|Admin|Employee'])->group(function () {
+    // Profile
+    Route::resource('/profile', ProfileController::class)->only(['index', 'store']);
+
     // Home
     Route::get('/', [HomeController::class,'index'])->name('home');
     
