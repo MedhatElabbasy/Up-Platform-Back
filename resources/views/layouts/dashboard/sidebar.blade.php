@@ -10,7 +10,7 @@ data-align="start">
                 ['icon'=>'class', 'link'=>'dashboard/categories', 'url'=>route('dashboard.categories.index'), 'text'=>'الأقسام'],
                 ['icon'=>'school', 'link'=>'/', 'url'=>route('dashboard.courses.index'), 'text'=>'مكتبة المهارات'],
                 ['icon'=>'videocam', 'link'=>'/', 'url'=>'#', 'text'=>'دورات أون لاين'],
-                ['icon'=>'video_library', 'link'=>'/', 'url'=>'#', 'text'=>'مسارات تدريبية'],
+                ['icon'=>'video_library', 'link'=>'/', 'url'=>route('dashboard.learning-path.index'), 'text'=>'مسارات تدريبية'],
             ],
         ] as $key => $sidebar)
        <div class="sidebar-heading">{{ $key }}</div>
