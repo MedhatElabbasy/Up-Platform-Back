@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\User;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+
+class ChangeCapController extends Controller
+{
+    public function index(){
+    
+    
+    return view('sar');
+    
+    
+    }
+
+}

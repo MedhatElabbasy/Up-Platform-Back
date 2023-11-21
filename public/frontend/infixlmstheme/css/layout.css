@@ -1,0 +1,32 @@
+.main {
+    min-height: 100%;
+    background-image: url("../img/banner/backgroundImage.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .main span {
+    color: var(--white-color);
+    font-size: 13px;
+  }
+  
+  .main h1 {
+    color: var(--white-color);
+    font-size: 40px;
+    font-weight: bold;
+        
+
+  }
+  
+  .main .text-title {
+    color: var(--white-color);
+    font-size: 15px;
+    font-family: "Bahij";
+    
+  }
+  
+  .main img {
+    height: 380px;
+  }
+  

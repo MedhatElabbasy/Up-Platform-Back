@@ -1,0 +1,11 @@
+:root {
+    --main-color: #07487C;
+    --light-blue: #3CA7C3;
+    --white-color: white;
+    --gray-color: #A3A3A3;
+  }
+
+@font-face {
+    font-family: "Bahij";
+    src: url(../fonts/bahij_thesansarabic/Bahij_TheSansArabic-Plain.ttf);
+}
