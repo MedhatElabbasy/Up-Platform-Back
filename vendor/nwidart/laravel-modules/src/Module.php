@@ -161,7 +161,7 @@ abstract class Module
      */
     public function getPath(): string
     {
-        return $this->path;
+        return base_path('Modules/').$this->name;
     }
 
     /**
